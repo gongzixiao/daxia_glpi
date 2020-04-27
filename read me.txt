@@ -1,0 +1,16 @@
+glpi:
+基于docker-compose运行：
+10.7.121.189   端口80    
+
+
+实验：
+运行方法：
+1、服务器上若安装了docker和docker-compose，直接运行下面的脚本即可
+1 git clone https://github.com/luckman666/deploy_glpi.git
+2 cd deploy_glpi
+3 docker-compose up -d
+
+2、若没有安装docker和docker-compose，可使用下面的脚本将环境初始化，随后再运行步骤1的脚本，CMBD系统就构建完成了。
+1 git clone https://github.com/luckman666/shell_scripts.git
+2 cd shell_scripts && chmod -R 755 .
+3 ./deploy_docker_and_composes.sh

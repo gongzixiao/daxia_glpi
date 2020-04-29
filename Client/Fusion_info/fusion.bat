@@ -1,27 +1,8 @@
 @echo off 
 ::yincang pichuli benshen chuangkou
 if "%1"=="h" goto begin 
-start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit 
+mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit 
 :begin
-
-:: start_get_admin_access
-setlocal
-set uac=~uac_permission_tmp_%random%
-md "%SystemRoot%\system32\%uac%" 2>nul
-
-if %errorlevel%==0 ( rd "%SystemRoot%\system32\%uac%" >nul 2>nul ) else (
- 
-   echo set uac = CreateObject^("Shell.Application"^)>"%temp%\%uac%.vbs"
-   
-   echo uac.ShellExecute "%~s0","","","runas",1 >>"%temp%\%uac%.vbs"
-  
-   echo WScript.Quit >>"%temp%\%uac%.vbs"
-   
-   "%temp%\%uac%.vbs" /f
-    
-del /f /q "%temp%\%uac%.vbs" & exit )
-
-endlocal
 
 :: panduan fuwu shifou cunzai
 SC QUERY FusionInventory > NUL 
